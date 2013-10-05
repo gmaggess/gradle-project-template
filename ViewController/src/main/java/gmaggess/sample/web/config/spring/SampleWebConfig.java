@@ -1,4 +1,4 @@
-package gmaggess.sample.server.config.spring;
+package gmaggess.sample.web.config.spring;
 
 import java.util.ArrayList;
 import java.util.List;
