@@ -1,0 +1,19 @@
+apply from: '../common.gradle'
+apply plugin: 'war'
+
+//If you want to test the war file with libs included under WEB-INF/lib, change providedCompile to providedCompile
+dependencies {
+
+    providedCompile project(':Model')
+
+    testCompile project(path: ':Model', configuration: 'tests')
+
+    testCompile group: 'org.springframework', name: 'spring-test', version: '3.2.2.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.8.2'
+
+}
+
+war{
+    archiveName="${application_war_name}"
+}
+

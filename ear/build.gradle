@@ -1,0 +1,27 @@
+apply plugin: 'ear'
+apply from: 'ear.gradle'
+apply from: 'sonar.gradle'
+apply plugin: 'idea'
+
+buildscript {
+    repositories {
+        mavenCentral()        
+    }
+    dependencies {
+        classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.9')
+        classpath "net.saliman:gradle-cobertura-plugin:1.1.2"
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        jvmArgs += [ "-XX:MaxPermSize=512m" ]
+    }
+
+}
