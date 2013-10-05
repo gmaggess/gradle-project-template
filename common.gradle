@@ -11,17 +11,11 @@ allprojects {
     }
 
     sourceCompatibility = '1.7'
-    //Added by Sagar	
-	repositories {
-        maven {
-            url "${artifactory_contextUrl}/tesseract"
-            credentials {
-                username = "${artifactory_user}"
-                password = "${artifactory_password}"
-            }
-        }
-	}
-    
+
+    repositories {
+        mavenCentral()
+    }    
+
     eclipse.classpath.file {
         beforeMerged { classpath -> 
             classpath.entries.clear()

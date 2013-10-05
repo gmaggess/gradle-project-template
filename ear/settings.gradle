@@ -1,0 +1,6 @@
+include "ViewController", "Model"
+
+rootProject.name = 'Sample'
+
+project(':ViewController').projectDir = new File(settingsDir, '../ViewController')
+project(':Model').projectDir = new File(settingsDir, '../Model')
