@@ -1,0 +1,49 @@
+import org.gradle.plugins.ide.eclipse.model.SourceFolder 
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'eclipse-wtp'
+    apply plugin: 'idea'
+
+    buildscript {
+        apply from: '../jacoco.gradle'
+    }
+
+    sourceCompatibility = '1.7'
+    //Added by Sagar	
+	repositories {
+        maven {
+            url "${artifactory_contextUrl}/tesseract"
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        }
+	}
+    
+    eclipse.classpath.file {
+        beforeMerged { classpath -> 
+            classpath.entries.clear()
+        }
+        whenMerged {  cp -> 
+            cp.entries.findAll { it instanceof SourceFolder && it.path.startsWith("src/main/") }*.output = "bin/main" 
+            cp.entries.findAll { it instanceof SourceFolder && it.path.startsWith("src/test/") }*.output = "bin/test" 
+            cp.entries.removeAll { it.kind == "output" }
+        }
+    }
+
+    task testJar(type: Jar, dependsOn: testClasses) {
+        baseName = "test-${project.archivesBaseName}"
+        from sourceSets.test.output
+    }
+
+    configurations {
+        tests
+    }
+
+    artifacts {
+        tests testJar
+    }
+
+}
