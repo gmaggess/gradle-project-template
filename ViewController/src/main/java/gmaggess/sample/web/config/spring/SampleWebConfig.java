@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 @Configuration
-@ComponentScan({"gmaggess.sample.server"})
+@ComponentScan({"gmaggess.sample.web"})
 @EnableWebMvc
 public class SampleWebConfig extends WebMvcConfigurerAdapter {
 

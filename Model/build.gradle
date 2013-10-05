@@ -1,0 +1,22 @@
+apply from: '../common.gradle'
+
+dependencies {
+    //Spring
+    compile group: 'org.springframework', name: 'spring-core', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aop', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context-support', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '3.2.2.RELEASE'
+   
+    compile group: 'commons-beanutils', name: 'commons-beanutils-core', version:'1.8.3'
+
+    testCompile group: 'org.springframework', name: 'spring-test', version: '3.2.0.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.8.2'
+}
+
+jar {
+    manifest {
+		version="1.0"
+        attributes("Implementation-Title": "Model", "Implementation-Version": version)
+    }
+}

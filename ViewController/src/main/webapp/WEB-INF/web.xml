@@ -45,7 +45,7 @@
 			and fully-qualified @Configuration classes -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>gmaggess.sample.server.config.spring.SampleWebConfig</param-value>
+			<param-value>gmaggess.sample.web.config.spring.SampleWebConfig</param-value>
 		</init-param>
 	</servlet>
         
