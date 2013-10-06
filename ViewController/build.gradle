@@ -6,6 +6,18 @@ dependencies {
 
     providedCompile project(':Model')
 
+	//Spring 
+    providedCompile group: 'javax.servlet', name:'jstl', version:'1.2'
+    providedCompile group: 'javax.servlet', name:'javax.servlet-api', version:'3.1.0'
+    providedCompile group: 'org.springframework', name: 'spring-core', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-aop', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-context', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-context-support', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-beans', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-web', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework', name: 'spring-webmvc', version: '3.2.2.RELEASE'
+    providedCompile group: 'org.springframework.plugin', name: 'spring-plugin-core', version: '0.8.0.RELEASE'
+	
     testCompile project(path: ':Model', configuration: 'tests')
 
     testCompile group: 'org.springframework', name: 'spring-test', version: '3.2.2.RELEASE'
